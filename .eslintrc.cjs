@@ -5,14 +5,66 @@ module.exports = {
     'eslint:recommended',
     'plugin:@typescript-eslint/recommended',
     'plugin:react-hooks/recommended',
+    "plugin:prettier/recommended",
+    "prettier"
   ],
   ignorePatterns: ['dist', '.eslintrc.cjs'],
   parser: '@typescript-eslint/parser',
-  plugins: ['react-refresh'],
-  rules: {
-    'react-refresh/only-export-components': [
-      'warn',
-      { allowConstantExport: true },
-    ],
+  plugins: ['react-refresh', "prettier"],
+  "rules": {
+    "prettier/prettier": "error",
+    "object-curly-newline": 0,
+    "no-class-assign": 0,
+    "no-param-reassign": 0,
+    "class-methods-use-this": 0,
+    "consistent-return": 0,
+    "no-shadow": 0,
+    "global-require": 0,
+    "eqeqeq": 0,
+    "no-unused-expressions": [1, { "allowShortCircuit": true, "allowTernary": true }],
+    "array-callback-return": 0,
+    "no-console": [1, { "allow": ["warn", "error"] }],
+    "no-debugger": 1,
+    "no-var": 1,
+    "semi": [1, "always"],
+    "no-trailing-spaces": 1,
+    "eol-last": 1,
+    "no-underscore-dangle": 0,
+    "no-alert": 0,
+    "no-lone-blocks": 0,
+    "jsx-quotes": 1,
+    "no-multi-spaces": 1,
+    "block-spacing": 1,
+    "brace-style": 1,
+    "comma-dangle": 0,
+    "comma-spacing": [1, { "before": false, "after": true }],
+    "comma-style": 1,
+    "key-spacing": 1,
+    "no-empty": [1, { "allowEmptyCatch": true }],
+    "no-multiple-empty-lines": [1, { "max": 1 }],
+    "arrow-spacing": 1,
+    "no-const-assign": 1,
+    "object-curly-spacing": [1, "always"],
+    "space-before-blocks": [1, "always"],
+    "keyword-spacing": 1,
+    "indent": 0,
+    "max-len": 0,
+    "react/no-unescaped-entities": "off",
+    "import/prefer-default-export": 0,
+    "import/no-extraneous-dependencies": 0,
+    "import/no-named-as-default": 0,
+    "react/jsx-props-no-spreading": 0,
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn",
+    "arrow-parens": 0,
+    "arrow-body-style": "off",
+    "prefer-arrow-callback": "off"
   },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "paths": ["src"]
+      }
+    }
+  }
 }
