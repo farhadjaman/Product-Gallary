@@ -2,8 +2,8 @@ import { Item } from 'screens/landing/products.type';
 
 const Product = ({ featured, item }: { featured: boolean; item: Item }) => {
   const productClass = [
-    'flex flex-col gap-y-2',
-    featured ? 'col-span-4 row-span-2' : 'col-span-2',
+    'flex flex-col text-gray-800',
+    featured ? 'col-span-4 row-span-2 gap-y-8 md:gap-y-1' : 'col-span-2',
   ].join(' ');
   return (
     <div className={productClass}>
@@ -15,7 +15,9 @@ const Product = ({ featured, item }: { featured: boolean; item: Item }) => {
         <img className={`w-sm p-6`} src={item.image} alt="product image" />
       </div>
       <div className={`h-full flex flex-col mx-2`}>
-        <div className="flex justify-between items-center">
+        <div
+          className={`flex ${featured ? '' : 'flex-col md:flex-row'} justify-between items-center`}
+        >
           <div className={`font-inter font-bold ${featured ? 'text-xl' : 'text-md'}`}>
             {item.name}
           </div>
