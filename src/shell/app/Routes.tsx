@@ -1,6 +1,5 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import LandingPage from 'screens/landing';
-
 const Routings = () => {
   return (
     <BrowserRouter>
