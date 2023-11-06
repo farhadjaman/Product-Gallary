@@ -15,7 +15,7 @@ import product12 from 'screens/landing/images/product12.webp';
 import product13 from 'screens/landing/images/product13.webp';
 import product14 from 'screens/landing/images/product14.webp';
 
-export const items: Item[] = [
+export const initialData: Item[] = [
   {
     id: 1,
     name: 'Headphone',
