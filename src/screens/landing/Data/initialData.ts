@@ -22,6 +22,7 @@ export const initialData: Item[] = [
     price: 19.99,
     image: product01,
     description: 'High-quality product with a sleek design.',
+    isSelected: false,
   },
   {
     id: 2,
@@ -29,6 +30,7 @@ export const initialData: Item[] = [
     price: 24.99,
     image: product02,
     description: 'Affordable and durable product for everyday use.',
+    isSelected: false,
   },
   {
     id: 3,
@@ -36,6 +38,7 @@ export const initialData: Item[] = [
     price: 12.99,
     image: product03,
     description: 'Compact and lightweight design, perfect for travel.',
+    isSelected: false,
   },
   {
     id: 4,
@@ -43,6 +46,7 @@ export const initialData: Item[] = [
     price: 21.99,
     image: product04,
     description: 'Stylish and versatile product for any occasion.',
+    isSelected: false,
   },
   {
     id: 5,
@@ -50,6 +54,7 @@ export const initialData: Item[] = [
     price: 16.99,
     image: product05,
     description: 'Ergonomically designed for maximum comfort.',
+    isSelected: false,
   },
   {
     id: 6,
@@ -57,6 +62,7 @@ export const initialData: Item[] = [
     price: 23.99,
     image: product06,
     description: 'Feature-rich product with the latest technology.',
+    isSelected: false,
   },
   {
     id: 7,
@@ -64,6 +70,7 @@ export const initialData: Item[] = [
     price: 11.99,
     image: product07,
     description: 'Budget-friendly option without compromising quality.',
+    isSelected: false,
   },
   {
     id: 8,
@@ -71,6 +78,7 @@ export const initialData: Item[] = [
     price: 18.99,
     image: product08,
     description: 'Eco-friendly and sustainable product.',
+    isSelected: false,
   },
   {
     id: 9,
@@ -78,6 +86,7 @@ export const initialData: Item[] = [
     price: 22.99,
     image: product09,
     description: 'Premium product with premium materials.',
+    isSelected: false,
   },
   {
     id: 10,
@@ -85,6 +94,7 @@ export const initialData: Item[] = [
     price: 25.99,
     image: product10,
     description: 'Cutting-edge technology and sleek design.',
+    isSelected: false,
   },
   {
     id: 11,
@@ -92,6 +102,7 @@ export const initialData: Item[] = [
     price: 13.99,
     image: product11,
     description: 'Simple and elegant design for everyday use.',
+    isSelected: false,
   },
   {
     id: 12,
@@ -99,6 +110,7 @@ export const initialData: Item[] = [
     price: 29.99,
     image: product12,
     description: 'Luxurious and high-end product for the discerning customer.',
+    isSelected: false,
   },
   {
     id: 13,
@@ -106,6 +118,7 @@ export const initialData: Item[] = [
     price: 32.99,
     image: product13,
     description: 'Multi-functional product for various applications.',
+    isSelected: false,
   },
   {
     id: 14,
@@ -113,5 +126,6 @@ export const initialData: Item[] = [
     price: 17.99,
     image: product14,
     description: 'Sturdy and dependable product that lasts.',
+    isSelected: false,
   },
 ];

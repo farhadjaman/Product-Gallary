@@ -1,13 +1,15 @@
 import { useState, useCallback } from 'react';
-import { Item } from './products.type';
+import { Item } from 'screens/landing/products.type';
 import Header from 'screens/landing/components/Header';
 import Product from 'screens/landing/components/product';
-import { initialData } from 'screens/landing/Data/initialData';
+import { useAppDispatch, useAppSelector } from 'redux/hooks';
+import { setItems } from 'redux/features/gallary/gallarySlice';
 import ImageIcon from 'assets/icons/Image.icon';
 import {
   DndContext,
   closestCenter,
   MouseSensor,
+  KeyboardSensor,
   TouchSensor,
   DragOverlay,
   useSensor,
@@ -18,10 +20,14 @@ import {
 import { SortableContext, rectSortingStrategy } from '@dnd-kit/sortable';
 
 const Index = () => {
-  const [items, setItems] = useState(initialData);
-  // Create a state variable to store the active item
+  const { items } = useAppSelector((state) => state.gallary);
   const [activeItem, setActiveItem] = useState<Item | null>(null);
-  const sensors = useSensors(useSensor(MouseSensor), useSensor(TouchSensor));
+  const dispatch = useAppDispatch();
+  const sensors = useSensors(
+    useSensor(MouseSensor),
+    useSensor(KeyboardSensor),
+    useSensor(TouchSensor)
+  );
 
   const handleDragStart = (event: DragStartEvent) => {
     const Id = event.active.id;
@@ -29,7 +35,7 @@ const Index = () => {
     // Ensure activeId is not undefined before setting it as the state
     if (Id && Id !== undefined) {
       const activeItemId = Number(Id);
-      const foundItem = items.find((item) => item.id === activeItemId);
+      const foundItem = items.find((item: Item) => item.id === activeItemId);
       if (foundItem) {
         setActiveItem(foundItem);
       }
@@ -41,21 +47,19 @@ const Index = () => {
     if (!over) return;
     if (active.id === over.id) return;
 
-    setItems((items) => {
-      const activeIndex = items.findIndex((img) => img.id === active.id);
-      const overIndex = items.findIndex((img) => img.id === over.id);
+    const activeIndex = items.findIndex((item: Item) => item.id === active.id);
+    const overIndex = items.findIndex((item: Item) => item.id === over.id);
 
-      // Make a copy of the array to avoid mutating the state directly
-      const newItems = [...items];
+    // Make a copy of the array to avoid mutating the state directly
+    const newItems = [...items];
 
-      // Remove the activeFile from its original position
-      const [activeFile] = newItems.splice(activeIndex, 1);
+    // Remove the activeFile from its original position
+    const [activeFile] = newItems.splice(activeIndex, 1);
 
-      // Insert the activeFile at the overIndex
-      newItems.splice(overIndex, 0, activeFile);
-
-      return newItems;
-    });
+    // Insert the activeFile at the overIndex
+    newItems.splice(overIndex, 0, activeFile);
+    //Add the new items to the state
+    dispatch(setItems(newItems));
     setActiveItem(null);
   };
 
