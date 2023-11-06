@@ -2,8 +2,9 @@ import { Item } from 'screens/landing/products.type';
 import { useSortable } from '@dnd-kit/sortable';
 import { useAppDispatch } from 'redux/hooks';
 import { selectItems } from 'redux/features/gallary/gallarySlice';
+import SelectIcon from 'assets/icons/Select.icon';
 const Product = ({ featured, item }: { featured: boolean; item: Item }) => {
-  const { isDragging, attributes, listeners, setNodeRef, transition } = useSortable({
+  const { attributes, listeners, setNodeRef, transition, isDragging } = useSortable({
     id: item.id,
   });
   const dispatch = useAppDispatch();
@@ -18,25 +19,30 @@ const Product = ({ featured, item }: { featured: boolean; item: Item }) => {
     transition: transition || undefined,
   };
 
+  // console.log(isDragging);
+
   function handletoggleSelect() {
     dispatch(selectItems({ id: item.id }));
   }
 
   return (
-    <div
-      ref={setNodeRef}
-      className={productClass}
-      style={style}
-      {...attributes}
-      {...listeners}
-      onClick={handletoggleSelect}
-    >
+    <div ref={setNodeRef} className={productClass} style={style} {...attributes} {...listeners}>
       <div
-        className={`flex bg-secondary w-full h-full mb-2 ${
-          featured ? 'rounded-[36px]' : 'rounded-[24px]'
+        className={`flex bg-secondary w-full h-full mb-2 relative ${
+          featured && !isDragging ? 'rounded-[36px]' : 'rounded-[24px]'
         }
         ${item.isSelected ? 'border-2 border-primary-200' : ''}`}
       >
+        <div
+          onMouseDown={handletoggleSelect}
+          className={`absolute ${featured ? 'top-5 right-7' : 'top-3 right-3'}`}
+        >
+          {item.isSelected ? (
+            <SelectIcon width={20} height={20} />
+          ) : (
+            <SelectIcon width={20} height={20} fill="#D3D3D3" />
+          )}
+        </div>
         <img className={`w-sm p-6`} src={item.image} alt="product image" />
       </div>
       <div className={`h-full flex flex-col mx-2`}>

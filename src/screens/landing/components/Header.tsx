@@ -25,36 +25,38 @@ const Headers = () => {
   };
 
   return (
-    <div className="flex flex-col md:flex-row justify-between">
-      <div className="flex flex-col">
-        <div className=" text-[36px] font-darkerGrotesque font-bold">Accessories</div>
-        <p className="text-sm md:text-xl">
-          Essentials that pairs perfectly with your favourite device
-        </p>
-      </div>
-      {selectedItemsCount > 0 && (
-        <div className="flex gap-4 pt-4 justify-between items-center hover:cursor-pointer">
-          <div onClick={handleSelectAllItems} className="flex gap-2 align-middle justify-center">
-            <p className="font-inter font-semibold text-md">Select All</p>
-          </div>
-          <div onClick={handleDeleteAllItems} className="flex gap-2 align-middle justify-center">
-            <p className="font-inter font-semibold text-sm lg:text-md">Delete All</p>
-          </div>
-          <div className="flex gap-2 align-middle justify-center hover:cursor-pointer">
-            <SelectIcon width={20} height={25} />
-            <p className="font-inter font-semibold text-sm lg:text-md ">
-              {selectedItemsCount} Items Selected
-            </p>
-          </div>
-          <div className="flex gap-2 hover:cursor-pointer hover:text-red-400">
-            <DeleteIcon width={20} height={22} />
-            <p onClick={handleDelete} className="font-inter font-semibold text-sm lg:text-md">
-              Delete Items
-            </p>
-          </div>
+    <header className="sticky top-0 z-50 bg-white py-4">
+      <div className="flex flex-col md:flex-row justify-between">
+        <div className="flex flex-col">
+          <div className=" text-[36px] font-darkerGrotesque font-bold">Accessories</div>
+          <p className="text-sm md:text-xl">
+            Essentials that pairs perfectly with your favourite device
+          </p>
         </div>
-      )}
-    </div>
+        {selectedItemsCount > 0 && (
+          <div className="flex gap-4 pt-4 justify-between items-center hover:cursor-pointer">
+            <div onClick={handleSelectAllItems} className="flex gap-2 align-middle justify-center">
+              <p className="font-inter font-semibold text-md">Select All</p>
+            </div>
+            <div onClick={handleDeleteAllItems} className="flex gap-2 align-middle justify-center">
+              <p className="font-inter font-semibold text-sm lg:text-md">Delete All</p>
+            </div>
+            <div className="flex gap-2 align-middle justify-center hover:cursor-pointer">
+              <SelectIcon width={20} height={25} />
+              <p className="font-inter font-semibold text-sm lg:text-md ">
+                {selectedItemsCount} Items Selected
+              </p>
+            </div>
+            <div className="flex gap-2 hover:cursor-pointer hover:text-red-400">
+              <DeleteIcon width={20} height={22} />
+              <p onClick={handleDelete} className="font-inter font-semibold text-sm lg:text-md">
+                Delete Items
+              </p>
+            </div>
+          </div>
+        )}
+      </div>
+    </header>
   );
 };
 
